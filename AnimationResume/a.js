@@ -1,8 +1,3 @@
-// var code = "var data = 1;";
-// var text = Prism.highlight(code, Prism.languages.javascript, 'javascript');
-// console.log(tetx)
-
-
 function writeCode(prefix, code, fn){
 	let pre = document.querySelector('#pre')	
 	pre.innerHTML = prefix || ''
@@ -10,6 +5,7 @@ function writeCode(prefix, code, fn){
   let clock = setInterval(()=>{
 		n += 1
 		pre.innerHTML = prefix + code.substring(0, n)
+   pre.innerHTML = Prism.highlight(pre.innerHTML,Prism.languages.css)
 		styleTag.innerHTML = prefix + code.substring(0, n)
 		pre.scrollTop = 100000
 		if(n >= code.length){
@@ -25,7 +21,6 @@ var a = `
  * 我是xxx，
  * 接下来我将以这种方式来介绍我的简历。
  */
-
 *{
 transition: all .5s;
 }
@@ -52,20 +47,20 @@ body{
  * 现在我需要一张纸，看我变变变。
 */
 #paper{
-	position: fixed;
-	right: 0;
-	width: 50%;
-	height: 100%;
-	background: black;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 10px;
+  position: fixed;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
-#paper > .content{
-	background: white;
-	height: 100%;
-	width: 100%;
+#paper>.content{
+  background: white;
+  height: 100%;
+  width: 100%;
 }
 `
 var b = ``
@@ -79,8 +74,6 @@ var md = `
 	# 联系方式
 	电话：17878787877
 	邮箱：120120120.@qq.com
-	
-
 `
 writeCode('', a, ()=>{
 	createPaper(()=>{
@@ -114,3 +107,33 @@ function writeMarkdown(markdown, fn){
 		}
 	}, 10)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
