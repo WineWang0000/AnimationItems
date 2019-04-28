@@ -5,7 +5,7 @@ function writeCode(prefix, code, fn){
   let clock = setInterval(()=>{
 		n += 1
 		pre.innerHTML = prefix + code.substring(0, n)
-   pre.innerHTML = Prism.highlight(pre.innerHTML,Prism.languages.css)
+    pre.innerHTML = Prism.highlight(pre.innerHTML,Prism.languages.css)
 		styleTag.innerHTML = prefix + code.substring(0, n)
 		pre.scrollTop = 100000
 		if(n >= code.length){
