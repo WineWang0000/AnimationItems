@@ -15,18 +15,20 @@ function writeCode(prefix, code, fn){
 	}, 10)
 }
 
-var a = `
-/*
+var a = `/*
  * 尊敬的面试官，您好!
  * 我是xxx，
  * 接下来我将以这种方式来介绍我的简历。
  */
-*{
-transition: all .5s;
-}
 body{
-  background: rgb(222, 222, 222);
   font-size: 16px;
+}
+/*
+ * 代码高亮
+*/
+html {
+  color: rgb(222,222,222); 
+  background: rgb(0,43,54);
 }
 #pre{
   border: 1px solid;
@@ -35,6 +37,19 @@ body{
   left: 0;
   width: 50%;
   height: 100%;
+  background:rgb(0,43,54);
+}
+.token.selector{ 
+  color: rgb(133,153,0); 
+}
+.token.property{ 
+  color: rgb(187,137,0); 
+}
+.token.punctuation{ 
+	color: yellow; 
+}
+.token.function{ 
+  color: rgb(42,161,152); 
 }
 /*
  * 看我，旋转，跳跃。
@@ -51,16 +66,16 @@ body{
   right: 0;
   width: 50%;
   height: 100%;
-  background: black;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 30px;
 }
 #paper>.content{
   background: white;
   height: 100%;
   width: 100%;
+  color: rgb(0,43,54);
 }
 `
 var b = ``
@@ -75,6 +90,7 @@ var md = `
 	电话：17878787877
 	邮箱：120120120.@qq.com
 `
+    
 writeCode('', a, ()=>{
 	createPaper(()=>{
 		writeCode(a, b, ()=>{
@@ -100,13 +116,14 @@ function writeMarkdown(markdown, fn){
   let clock = setInterval(()=>{
 		n += 1
 		domPaper.innerHTML = markdown.substring(0, n)
-		domPaper.scrollTop = domPaper.scrollHeight 
+		domPaper.scrollTop = domPaper.scrollHeight
 		if(n >= markdown.length){
 			window.clearInterval(clock)
-			// fn.call()
+			fn.call()
 		}
 	}, 10)
 }
+
 
 
 
